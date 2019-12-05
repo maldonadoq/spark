@@ -6,6 +6,8 @@ from pyspark.ml.feature import VectorAssembler
 
 # Create Spark Session
 spark = SparkSession.builder.appName('Linear').getOrCreate()
+spark.sparkContext.setLogLevel('ERROR')
+
 # Read CSV
 dataset = spark.read.csv('data/linear.csv', inferSchema=True, header=True)
 
@@ -37,7 +39,8 @@ regressor = LinearRegression(featuresCol='Independent Features', labelCol='Yearl
 regressor = regressor.fit(train_data)
 
 # Get coeficient of Linear Regression
-regressor.coefficients
+print('Regressor Coefficients')
+print(regressor.coefficients)
 
 # Predictions
 pred_results = regressor.evaluate(test_data)
