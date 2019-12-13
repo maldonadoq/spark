@@ -1,3 +1,8 @@
+# Data
+data/mnist_train.txt
+data/mnist_test.txt
+model/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
